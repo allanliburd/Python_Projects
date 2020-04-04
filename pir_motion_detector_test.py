@@ -10,31 +10,34 @@ camera = PiCamera(resolution=(1280, 720), framerate=30)
 sleep(2)
 
 directory = '/home/pi/Videos/Motion_Detected/'
-directory2 = '/home/pi/Videos/Stop_Motion/'
+directory2 = '/home/pi/Pictures/Stop_Motion/'
 
 motion_detect = 0
 if motion_detect:
+    video_length = 11
     for i in range(2):
         #pir.wait_for_motion()
         print("Motion detected!")
-        filename = "{0:%Y}-{0:%m}-{0:%d}_{0:%H}{0:%M}{0:%S}".format(datetime.now())
+        filename = "motion{0:%Y}-{0:%m}-{0:%d}_{0:%H}{0:%M}{0:%S}".format(datetime.now())
         camera.start_preview()
-        #camera.start_recording(filename + '.h264')
+        camera.start_recording(directory + filename + '.h264')
         #pir.wait_for_no_motion()
-        sleep(4)
+        sleep(video_length)
         camera.capture(directory + filename + '.jpg')
         camera.stop_preview()
-        #camera.stop_recording()
+        camera.stop_recording()
 
 stop_motion = 1
 if stop_motion:
     max_frames = 23
     nFrame = 1
+    wait_time = 5
     camera.start_preview()
     while (nFrame < max_frames):
         try:
             #button.wait_for_press()
-            sleep(2)
+            sleep(wait_time)
+            print("Strike a Pose!")
             camera.capture(directory2 + 'frame%03d.jpg' % nFrame)
             nFrame += 1
         except KeyboardInterrupt:
