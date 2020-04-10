@@ -4,12 +4,6 @@ import sys
 import datetime
 import time
 import webbrowser
-# camera = PiCamera(resolution=((512, 512)), framerate=30)
-
-# camera.start_preview()
-# sleep(2)
-# camera.capture('/home/pi/Pictures/AlarmClock/image.jpg')
-# camera.stop_preview()
 
 def web_open(url):
     print('Opening the following URL : ' + url)

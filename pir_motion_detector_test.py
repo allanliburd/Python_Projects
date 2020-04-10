@@ -12,7 +12,7 @@ sleep(2)
 directory = '/home/pi/Videos/Motion_Detected/'
 directory2 = '/home/pi/Pictures/Stop_Motion/'
 
-motion_detect = 0
+motion_detect = 1
 if motion_detect:
     video_length = 11
     for i in range(2):
