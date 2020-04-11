@@ -15,9 +15,9 @@ if test:
 track = 1
 if track:
     image_number = 0
-    wait_time = 60 * 60 * 4 # 60 sec x 60 mn x H hours
+    wait_time = 60 * 60 * 0 # 60 sec x 60 mn x H hours
     print ("Wait time is = " + str(wait_time/60) + " minutes")
-    n_frames = 49
+    n_frames = 1
     try:
         while image_number < n_frames:
             pcam = PiCamera(resolution=(640, 512), framerate=30)
@@ -28,6 +28,7 @@ if track:
             pcam.stop_preview()
             pcam.close() # allow cam to be used by a different script
             image_number += 1
+            print (image_name)
             print ('Number of frames taken : ' + str(image_number))
             sleep(wait_time)
     except KeyboardInterrupt:
