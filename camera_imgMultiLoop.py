@@ -11,10 +11,11 @@ camera.annotate_text_size = 29
 
 # EFFECT: none, negative, solarize, sketch, denoise, emboss, oilpaint, hatch, gpen, pastel, watercolor, film, blur, 
 #       : saturation, colorswap, washedout, posterize, colorpaint, colorbalance, cartoon, deinterlace1-2
-skip_effects = ['gpen','emboss', 'deinterlace1', 'deinterlace2']
+skip_effects = ['sketch', 'emboss', 'oilpaint', 'hatch', 'gpen', 'pastel', 'watercolor', 'blur',
+     'posterize', 'cartoon', 'deinterlace1', 'deinterlace2']
 
 # AWB: off, auto, sunlight, cloudy, shade, tungsten, flouorescent, incancedescent, flash, horizon, 
-skip_awb = ['off', 'flash']
+skip_awb = ['off', 'cloudy', 'shade', 'flash', 'horizon']
 
 try:
     effectNum = 1
