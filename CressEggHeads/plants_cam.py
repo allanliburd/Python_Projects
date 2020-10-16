@@ -2,11 +2,11 @@ from picamera import PiCamera, Color
 from time import sleep
 from datetime import datetime
 
-pdirectory = '/home/pi/Pictures/CressEggHead/'
+pdirectory = '/home/pi/Pictures/LivingRoom/'
 test = 0
 if test:
     print ('test cam')
-    # pcam = PiCamera(resolution=(1280, 1024), framerate=30)
+    # pcam = PiCamera(resolution=(1880, 720), framerate=30)
     # pcam.start_preview()
     # sleep(5)
     # pcam.capture(pdirectory + 'plants.jpg')
@@ -25,15 +25,16 @@ if track:
     n_frames = 1
     try:
         while image_number < n_frames:
-            pcam = PiCamera(resolution=(640, 512), framerate=30)
+            pcam = PiCamera(resolution=(1240, 912), framerate=30)
             currentTime = datetime.now()
             timestamp = "{0:%Y}-{0:%m}-{0:%d}_{0:%H}H{0:%M}M".format(currentTime)
-            image_name = "plants" + timestamp
+            image_name = "livingRoon" + timestamp
             pcam.start_preview()
             if currentTime.hour > 17 or currentTime.hour < 7:
-                pcam.exposure_mode = 'verylong'
+                #pcam.exposure_mode = 'verylong'
                 # pcam.awb_mode = 'auto'
                 # pcam.image_effect = 'none'
+                pass
             else:
                 pcam.exposure_mode = 'auto'
                 pcam.awb_mode = 'auto'
