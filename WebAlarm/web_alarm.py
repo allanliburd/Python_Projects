@@ -23,21 +23,20 @@ def alarm(current_time, alarm_time):
 isWindows = sys.platform.startswith('win32')
 isMacOs = sys.platform.startswith('darwin')
 isLinux = sys.platform.startswith('linux')
-print ("OS Platform : " + sys.platform)
-print ("OS Name : " + os.name)
+print ("OS Platform : " + sys.platform + "OS Name : " + os.name)
 #os.path.join()
 test = 1
 if test:
-    for hr in range(10, 18, 2):
+    for hr in range(10, 20, 2):
         now = datetime.datetime.now()
         expTime = datetime.time(hr, 00, 0)
         alarm_time = datetime.datetime.combine(now.date(), expTime)
         print('current time : ' + str(now))
         print('expect alarm @ : ' + str(expTime))
         #print('alarm time : ' + str(alarm_time))
-        if alarm (now, alarm_time) == 0:
+        if alarm (now, alarm_time) == 1 and hr > 18:
             if isWindows:
                 web_open("F:\github_repos\JavaScript_Projects\\toDo_List\index.html")
             else:
                 web_open('/home/pi/projects/JavaScript_Projects/toDo_List/index.html')
-
+                web_open('https://www.youtube.com/watch?v=B8GJbhMTqxk')
